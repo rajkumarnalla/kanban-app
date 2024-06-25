@@ -1,0 +1,45 @@
+.filter-btn {
+    background: #efefef;
+    width: 90px;
+    margin: 15px 10px;
+    padding: 5px;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.filter-btn > button {
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+
+.display-popup {
+    width: 240px;
+    position: fixed;
+    z-index: 1;
+    background: #efefef;
+    padding: 10px;
+    margin: 0 10px;
+    top: 56px;
+    border: 1px solid lightgrey;
+    border-radius: 6px;
+}
+
+.display-popup label {
+    font-weight: 600;
+    color: grey;
+}
+
+.display-popup select {
+    width: 120px;
+    border: 1px solid lightgrey;
+    font-size: 15px;
+    padding: 2px 4px;
+    cursor: pointer;
+}
+
+.display-popup select option {
+    cursor: pointer;
+}

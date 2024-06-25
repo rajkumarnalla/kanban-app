@@ -1,0 +1,53 @@
+.app-card, .app-dummy-card {
+    box-shadow: 2px 2px 4px #e2e2e2;
+    justify-content: center;
+    align-items: stretch;
+    width: 280px;
+    margin: 5px 10px;
+    padding: 5px 15px;
+    border: 1px solid #e2e2e2;
+    background: white;
+    border-radius: 5px;
+}
+
+.app-dummy-card {
+    box-shadow: none;
+    border: none;
+    background: none;
+}
+
+.app-card-title {
+    flex: 1;
+}
+
+.app-card-title > h2 {
+    margin: 0;
+    font-weight: 500;
+    color: grey;
+    font-size: 16px;
+}
+
+.app-card-title > .user-icon {
+    border-radius: 50%;
+    background: lightgrey;
+    height: 20px;
+    width: 20px;
+}
+
+.app-card-body {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.app-card-info > span {
+    margin-left: 6px
+}
+
+.app-card-info > .user-icon {
+    border-radius: 50%;
+    background: lightgrey;
+    height: 8px;
+    width: 8px;
+}

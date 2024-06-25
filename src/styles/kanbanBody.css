@@ -1,0 +1,8 @@
+.kanban-body {
+    height: 100%;
+    background: #e8e8e8;
+}
+
+.kanban-body > div {
+    background: #e8e8e8;
+}

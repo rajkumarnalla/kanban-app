@@ -1,0 +1,22 @@
+.kanban-header > div {
+    min-width: 310px;
+    padding: 10px;
+    background: #e8e8e8;
+}
+
+.kanban-header > div > span:nth-child(2) {
+    flex: 1;
+    display: inline-block;
+}
+
+.kanban-header > div > img:not(:last-child) {
+    margin-right: 10px;
+}
+
+.user-icon {
+    border-radius: 50%;
+    background: grey;
+    height: 15px;
+    width: 15px;
+    margin-right: 5px;
+}
