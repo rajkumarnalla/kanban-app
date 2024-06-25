@@ -6,14 +6,17 @@ export const CommonContext = createContext();
 export function CommonTaskProvider({ children }) {
 
   const [groupByValue, setGroupByValue] = useState('status');
+  const [groupWiseTicketsCount, setGroupWiseTicketsCount] = useState({});
   const [orderByValue, setOrderByValue] = useState('priority');
 
 
   const contextData = {
     groupByValue,
     orderByValue,
+    groupWiseTicketsCount,
     setGroupByValue,
-    setOrderByValue
+    setOrderByValue,
+    setGroupWiseTicketsCount
   }
 
   return (

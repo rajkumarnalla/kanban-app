@@ -1,25 +1,29 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import { CommonContext } from "../context/CommonContext";
 import { AllStatus, PriorityLevels } from "../contsants";
 import "../styles/kanbanHeader.css";
 
-const KanbanHeader = ({users}) => {
+const KanbanHeader = ({tickets, users}) => {
     const {groupByValue} = useContext(CommonContext);
-    const [headerData, setHeaderData] = useState(AllStatus);
-    const logos = {};
 
-    useEffect(() => {
+    const getTicketsCount = (value) => {
         if (groupByValue === "status") {
-            setHeaderData(AllStatus);
+            return tickets?.filter((el) => el.status === value).length || 0;
+        } else if (groupByValue === "user") {
+            return tickets?.filter((el) => el.userId === value).length || 0;
+        } else if (groupByValue === "priority") {
+            return tickets?.filter((el) => PriorityLevels[el.priority] === value).length || 0;
         }
-    }, [groupByValue])
+        
+    }
 
     const statusHeader = () => {
-        return headerData.map((el, index) => {
+        return AllStatus.map((el, index) => {
             return (
                 <div key={"kb-h-"+index} className="flex-row column-center" style={{paddingRight: '32px'}}>
                     <img src={`./images/${el.replace(/ /g, '')}.svg`}  alt={`${el} logo`}/>
                     <span>{el}</span>
+                    <span>{getTicketsCount(el)}</span>
                     <img src="./images/add.svg" alt="add logo" />
                     <img src="./images/3-dot-menu.svg" alt="menu logo"/>
                 </div>
@@ -28,11 +32,12 @@ const KanbanHeader = ({users}) => {
     }
 
     const userHeader = () => {
-        return users.map((el, index) => {
+        return users?.map((el, index) => {
             return (
                 <div key={"kb-h-"+index} className="flex-row column-center" style={{paddingRight: '32px'}}>
                     <span className="user-icon"></span>
                     <span>{el.name}</span>
+                    <span>{getTicketsCount(el.id)}</span>
                     <img src="./images/add.svg" alt="add logo"/>
                     <img src="./images/3-dot-menu.svg" alt="menu logo"/>
                 </div>
@@ -46,6 +51,7 @@ const KanbanHeader = ({users}) => {
                 <div key={"kb-h-"+index} className="flex-row column-center" style={{paddingRight: '32px'}}>
                     <img src={`./images/${el.replace(/ /g, '-')}.svg`} alt={`${el} logo`}/>
                     <span>{el}</span>
+                    <span>{getTicketsCount(el)}</span>
                     <img src="./images/add.svg" alt="add logo"/>
                     <img src="./images/3-dot-menu.svg" alt="menu logo"/>
                 </div>

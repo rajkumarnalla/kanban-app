@@ -27,7 +27,7 @@ const Home = () => {
         } catch(err) {
             setLoading(false);
             setError(err);
-            alert("Failed to fetch kanban data");
+            // alert("Failed to fetch kanban data");
         }
     }
 
@@ -36,11 +36,18 @@ const Home = () => {
             <div style={{height: "100%"}}>
                 <FilterButton/>
                 <div className="flex-column home-content">
-                    <KanbanHeader users={users}/>
-                    <KanbanBody tickets={tickets} users={users}/>
+                    <KanbanHeader tickets={tickets} users={users}/>
+                    {!error && <KanbanBody tickets={tickets} users={users}/>}
+                    {error && <Error/>}
                 </div>
             </div>
         </CommonTaskProvider>
+    )
+}
+
+const Error = () => {
+    return (
+        <div style={{textAlign: "center", margin: "20px"}}>Data failed to load, Please try again!</div>
     )
 }
 

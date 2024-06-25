@@ -1,6 +1,6 @@
 .kanban-body {
-    height: 100%;
     background: #e8e8e8;
+    flex: 1;
 }
 
 .kanban-body > div {
